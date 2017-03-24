@@ -1,0 +1,9 @@
+{% if postings_list %}
+    <ul>
+    {% for posting in postings_list %}
+        <li><a "{% url 'detail' posting.id %}">{{ posting.posting_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No postings are available.</p>
+{% endif %}
