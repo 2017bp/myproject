@@ -1,9 +1,24 @@
+{% load static %}
+
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'BP/style.css' %}" />
+</head>
+
+<h1><center>BluePages </center></h1>
+<p><center> Venture Hub for Yalies </center><p>
+
+<p><a href="{% url 'BP:submit' %}"> Post a new job </a></p>
+
+<center>
 {% if postings_list %}
     <ul>
     {% for posting in postings_list %}
-        <li><a "{% url 'detail' posting.id %}">{{ posting.posting_text }}</a></li>
+        <li><a href="{% url 'BP:detail' posting.id %}">{{ posting.posting_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No postings are available.</p>
 {% endif %}
+</center>
