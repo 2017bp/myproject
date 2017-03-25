@@ -4,6 +4,21 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="{% static 'BP/style.css' %}" />
+
+<!-- Bootstrap Template Links -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="{% static 'BP/favicon.ico' %}" type="image/x-icon">
+        <link rel="icon" href="{% static 'BP/favicon.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'BP/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/fontello.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/owl.theme.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/css/owl.transitions.css' %}">
+        <link rel="stylesheet" href="{% static 'BP/responsive.css' %}">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 
 <h1><center>BluePages </center></h1>
@@ -13,12 +28,73 @@
 
 <center>
 {% if postings_list %}
-    <ul>
+           <div class="container">
+                <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+                    <h5>Recent Jobs</h5>
+                    <h2><span>54716</span> Search</h2>
+                </div>
+                <div class="row jobs">
+                    <div class="col-md-9">
+                        <div class="job-posts table-responsive">
     {% for posting in postings_list %}
-        <li><a href="{% url 'BP:detail' posting.id %}">{{ posting.posting_text }}</a></li>
+                            <table class="table">
+                                <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                                    <td class="tbl-logo"><img src="img/job-logo1.png" alt=""></td>
+                                    <td class="tbl-title"><h4>Web Designer <br><span class="job-type">full time</span></h4></td>
+                                    <td><p>{{posting.posting_text}}</p></td>
+                                    <td><p><i class="icon-location"></i>San Franciso, USA</p></td>
+                                    <td><p>&dollar; 14000</p></td>
+                                    <td class="tbl-apply"><a href="#">More...</a></td>
+                                </tr>
+                            </table>
     {% endfor %}
-    </ul>
+                            </div>
+                        <div class="more-jobs">
+                            <a href=""> <i class="fa fa-refresh"></i>View more jobs</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 hidden-sm">
+                        <div class="job-add wow fadeInRight" data-wow-delay="1.5s">
+                            <h2>Seeking a job?</h2>
+                            <a href="#">Create a Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 {% else %}
     <p>No postings are available.</p>
 {% endif %}
 </center>
+
+            <div class="container">
+                <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+                    <h5>Recent Jobs</h5>
+                    <h2><span>54716</span> Search</h2>
+                </div>
+                <div class="row jobs">
+                    <div class="col-md-9">
+                        <div class="job-posts table-responsive">
+                            <table class="table">
+                                <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                                    <td class="tbl-logo"><img src="img/job-logo1.png" alt=""></td>
+                                    <td class="tbl-title"><h4>Web Designer <br><span class="job-type">full time</span></h4></td>
+                                    <td><p>posting.posting_text</p></td>
+                                    <td><p><i class="icon-location"></i>San Franciso, USA</p></td>
+                                    <td><p>&dollar; 14000</p></td>
+                                    <td class="tbl-apply"><a href="#">More...</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="more-jobs">
+                            <a href=""> <i class="fa fa-refresh"></i>View more jobs</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 hidden-sm">
+                        <div class="job-add wow fadeInRight" data-wow-delay="1.5s">
+                            <h2>Seeking a job?</h2>
+                            <a href="#">Create a Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
