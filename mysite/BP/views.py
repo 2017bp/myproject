@@ -5,34 +5,23 @@ from django.views import generic
 from django.shortcuts import redirect
 from .models import Posting, Founder
 from .forms import PostForm
-# Create your views here.
-# def index(request):
-#     postings_list = Posting.objects.all()
-#     context = {'postings_list': postings_list}
-#     return render(request, 'BP/index.html', context)
+from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-# def detail(request, posting_id):
-# 	try:
-#             posting = Posting.objects.get(pk=posting_id)
-# 	except Posting.DoesNotExist:
-#     	    raise Http404("Posting does not exist")
-# 	return render(request, 'BP/detail.html', {'posting': posting})
-
-# def submit(request):
-# 	return HttpResponse("Submit your job posting here")
-
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'BP/index.html'
     context_object_name = 'postings_list'
-
+    redirect_field_name = 'home'
     def get_queryset(self):
         return Posting.objects.all()
 
 
-class DetailView(generic.DetailView):
+class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Posting
     template_name = 'BP/detail.html'
 
+@login_required
 def submit(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -40,8 +29,16 @@ def submit(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('http://127.0.0.1:8000/BP/')
+            return redirect('/BP/')
     else:
         form = PostForm()
     return render(request, 'BP/submit_post.html', {'form': form})
+
+@login_required
+def AboutView(request):
+    return render(request, 'BP/about.html', )
+
+def logout_view(request):
+    logout(request)
+    return redirect('login/')
 

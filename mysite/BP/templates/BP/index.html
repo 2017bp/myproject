@@ -1,3 +1,5 @@
+<!-- Job Board Template Derived from https://readytheme.net/item/jonaki-job-board-template/ -->
+
 {% load static %}
 
 <head>
@@ -21,10 +23,11 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 
-<center><h1>BluePages</h1></center>
+<!-- <center><h1>BluePages</h1></center> -->
+<center><img src="{% static 'BP/images/Banner.png' %}"></center>
 <p><center> Digital Venture Hub </center><p>
-
-<center><p><a href="{% url 'BP:submit' %}"> Post a new job </a></p></center>
+	<p><center> Welcome {{ user.first_name }}! <center></p>
+<!-- <center><p><a href="{% url 'BP:submit' %}"> Post a new job </a></p></center> -->
 
        <div id="preloader">
             <div id="status">&nbsp;</div>
@@ -81,13 +84,225 @@
                 <li class="wow fadeInDown" data-wow-delay="0s" style=""><a class="active" href="#">Search</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#">Directory</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="{% url 'BP:submit' %}">Submit</a></li>
-<!--                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#">About us</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#">Blog</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li> -->
+                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="{% url 'BP:about' %}">About</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="logout">Logout</a></li>
+<!--                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li> -->
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+<!-- 
+        <div class="slider-area">
+            <div class="slider">
+                <div id="bg-slider" class="owl-carousel owl-theme">
+                 
+                  <div class="item"><img src="img/slider-image-3.jpg" alt="Mirror Edge"></div>
+                  <div class="item"><img src="img/slider-image-2.jpg" alt="The Last of us"></div>
+                  <div class="item"><img src="img/slider-image-1.jpg" alt="GTA V"></div>
+                 
+                </div>
+            </div>
+            <div class="container slider-content">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                        <h2>Job Searching Just Got So Easy</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
+                        <div class="search-form wow pulse" data-wow-delay="0.8s">
+                            <form action="" class=" form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Job Key Word">
+                                </div>
+                                <div class="form-group">
+                                    <select name="" id="" class="form-control">
+                                        <option>Select Your City</option>
+                                        <option selected>New york, CA</option>
+                                        <option>New york, CA</option>
+                                        <option>New york, CA</option>
+                                        <option>New york, CA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="" id="" class="form-control">
+                                        <option>Select Your Category</option>
+                                        <option selected>Graphic Design</option>
+                                        <option>Web Design</option>
+                                        <option>App Design</option>
+                                    </select>
+                                </div>
+                                <input type="submit" class="btn" value="Search">
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+<!--         <div class="content-area">
+            <div class="container">
+                <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+                    <h5>Our Process</h5>
+                    <h2>How we work for you?</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae illum dolorem, rem officia, id explicabo sapiente</p>
+                </div>
+                <div class="row how-it-work text-center">
+                    <div class="col-md-4">
+                        <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+                            <img src="img/how-work1.png" alt="">
+                            <h3>Searching for the best job</h3>
+                            <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+                            <img src="img/how-work2.png" alt="">
+                            <h3>Searching for the best job</h3>
+                            <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+                            <img src="img/how-work3.png" alt="">
+                            <h3>Searching for the best job</h3>
+                            <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="container">
+                <div class="row job-posting wow fadeInUp" data-wow-delay="1s">
+                    <div role="tabpanel">
+                      <!-- Nav tabs -->
+<!--                       <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#job-seekers" aria-controls="home" role="tab" data-toggle="tab">Job Seekers</a></li>
+                        <li role="presentation"><a href="#employeers" aria-controls="profile" role="tab" data-toggle="tab">Employeers</a></li>
+                      </ul> -->
+
+                      <!-- Tab panes -->
+<!--                       <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="job-seekers">
+                            <ul class="list-inline job-seeker">
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-5.jpg" alt="">
+                                        <div class="overlay"><h3>Ohidul Islam</h3><p>Web Designer</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-6.jpg" alt="">
+                                        <div class="overlay"><h3>Mohidul Islam</h3><p>CEO</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-3.jpg" alt="">
+                                        <div class="overlay"><h3>Unknown girl</h3><p>Graphic Designer</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-4.jpg" alt="">
+                                        <div class="overlay"><h3>Eftakher Alam</h3><p>Graphic Designer</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-2.jpg" alt="">
+                                        <div class="overlay"><h3>Mark Otto</h3><p>Founder</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-1.jpg" alt="">
+                                        <div class="overlay"><h3>Rasel Ahmed</h3><p>Web Developer</p></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="employeers">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="">
+                                        <img src="img/employee4.png" alt="">
+                                        <div class="overlay"><h3>Instagram</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/employee5.png" alt="">
+                                        <div class="overlay"><h3>Microsoft</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/employee6.png" alt="">
+                                        <div class="overlay"><h3>Dribbble</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/employee1.png" alt="">
+                                        <div class="overlay"><h3>Beats Music</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/employee2.png" alt="">
+                                        <div class="overlay"><h3>Facebook</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/employee3.png" alt="">
+                                        <div class="overlay"><h3>Twitter</h3></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>  -->
+
+<center>
+{% if postings_list %}
+           <div class="container">
+                <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+                    <h5>Recent Posts</h5>
+                    <h2><span>Search</span></h2>
+                </div>
+                <div class="row jobs">
+                    <div class="col-md-9">
+                        <div class="job-posts table-responsive">
+    {% for posting in postings_list %}
+                            <table class="table">
+                                <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                                    <td class="tbl-logo"><img src="img/job-logo1.png" alt=""></td>
+                                    <td class="tbl-title"><h4>{{posting.job}} <br><span class="job-type">full time</span></h4></td>
+                                    <td><p>{{posting.company_name}}</p></td>
+                                    <td><p><i class="icon-location"></i>{{posting.posting_text}}</p></td>
+                                    <td><p>&dollar; 14000</p></td>
+                                    <td class="tbl-apply"><a href="{% url 'BP:detail' posting.id %}">More...</a></td>
+                                </tr>
+                            </table>
+    {% endfor %}
+                            </div>
+                        <div class="more-jobs">
+                            <a href=""> <i class="fa fa-refresh"></i>View more jobs</a>
+                        </div>
+                    </div>
+<!--                     <div class="col-md-3 hidden-sm">
+                        <div class="job-add wow fadeInRight" data-wow-delay="1.5s">
+                            <h2>Seeking a job?</h2>
+                            <a href="#">Create a Account</a>
+                        </div>
+                    </div> -->
                 </div>
             </div>
 <hr>
@@ -195,7 +410,7 @@
 		
 		
 		        <link rel="stylesheet" href="{% static 'BP/css/normalize.css' %}">
-	
+		
 		
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
