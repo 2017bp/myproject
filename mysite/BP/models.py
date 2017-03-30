@@ -1,10 +1,12 @@
 from __future__ import unicode_literals
 from django.db import models
 from accounts.models import User
+#from django.contrib.auth import get_user_model
+#User = get_user_model()
 
 # Create your models here.
 class Posting(models.Model):
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(User, unique=False)
 	posting_text = models.CharField(max_length=200)
 	company_name = models.CharField(max_length=200)
 	job = models.CharField(max_length=200)
