@@ -27,7 +27,7 @@ def submit(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.user = request.user.email
             post.save()
             return redirect('/BP/')
     else:

@@ -32,12 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'BP.apps.BpConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL= '/BP/login/'
 LOGIN_REDIRECT_URL = '/BP'
+AUTH_USER_MODEL = "accounts.User"

@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
-
 from django.db import models
+from accounts.models import User
 
 # Create your models here.
 class Posting(models.Model):
+	user = models.ForeignKey(User)
 	posting_text = models.CharField(max_length=200)
 	company_name = models.CharField(max_length=200)
 	job = models.CharField(max_length=200)
@@ -19,5 +20,6 @@ class Founder(models.Model):
 	university = models.CharField(max_length=50)
 	def  __str__(self):
 		return self.email
+
 
 
