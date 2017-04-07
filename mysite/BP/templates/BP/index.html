@@ -85,7 +85,8 @@
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#">Directory</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="{% url 'BP:submit' %}">Submit</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="{% url 'BP:about' %}">About</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="logout">Logout</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="{% url 'BP:account_update' pk=user.id%}">Edit Profile</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="logout">Logout</a></li>
 <!--                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li> -->
               </ul>
             </div><!-- /.navbar-collapse -->

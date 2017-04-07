@@ -31,3 +31,4 @@ class RegistrationView(CreateView):
         reset_form.save(**opts)
 
         return redirect('accounts:register-done')
+

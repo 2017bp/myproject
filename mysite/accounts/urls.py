@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
 from .views import RegistrationView
+from BP.views import edit_user
 from django.contrib.auth import views
 
 urlpatterns = [
