@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from accounts.models import User
+from django.db.models.signals import post_save
 #from django.contrib.auth import get_user_model
 #User = get_user_model()
 
@@ -22,6 +23,7 @@ class Founder(models.Model):
 	university = models.CharField(max_length=50)
 	def  __str__(self):
 		return self.email
+
 
 
 

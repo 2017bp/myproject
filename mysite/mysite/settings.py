@@ -34,12 +34,15 @@ INSTALLED_APPS = [
     'BP.apps.BpConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
+    'django.contrib.sites',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +131,8 @@ STATIC_URL = '/static/'
 LOGIN_URL= '/BP/login/'
 LOGIN_REDIRECT_URL = '/BP'
 AUTH_USER_MODEL = "accounts.User"
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+SITE_ID = 1
