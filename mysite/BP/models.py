@@ -29,11 +29,12 @@ class UserProfile(models.Model):
     photo = models.FileField(verbose_name="Profile Picture",
                     max_length=255, null=True, blank=True)
     website = models.URLField(default='', blank=True)
-    bio = models.TextField(default='', blank=True)
-    phone = models.CharField(max_length=20, blank=True, default='')
+    blurb = models.TextField(default='', blank=True)
+    phone_number = models.CharField(max_length=20, blank=True, default='')
     city = models.CharField(max_length=100, default='', blank=True)
     country = models.CharField(max_length=100, default='', blank=True)
-    organization = models.CharField(max_length=100, default='', blank=True)
+    major = models.CharField(max_length=100, default='', blank=True)
+    university = models.CharField(max_length=100, default='', blank=True)
 
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]

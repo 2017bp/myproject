@@ -54,7 +54,7 @@ def edit_user(request, pk):
     user_form = UserForm(instance=user)
 
     # The sorcery begins from here, see explanation below
-    ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('website', 'bio', 'phone', 'city', 'country', 'organization'))
+    ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('website', 'blurb', 'city', 'country', 'major'))
     formset = ProfileInlineFormset(instance=user)
 
     if request.user.is_authenticated() and request.user.id == user.id:
