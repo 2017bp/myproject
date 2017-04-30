@@ -24,6 +24,14 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Posting
     template_name = 'BP/detail.html'
 
+
+class DirectoryView(LoginRequiredMixin, generic.ListView):
+    template_name = 'BP/directory.html'
+    context_object_name = 'user_profiles_list'
+    def get_queryset(self):
+        return UserProfile.objects.all()
+
+
 @login_required
 def submit(request):
     if request.method == "POST":
