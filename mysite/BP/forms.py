@@ -4,9 +4,9 @@ from .models import Posting, Company
 
 class PostForm(forms.ModelForm):
 	posting_text = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Posting Description'}))
- 	company_name = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Company Name'}))
+ 	company_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Company Name'}))
  	job = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Job'}))
- 	job_description = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Job Description'}))
+ 	job_description = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Job Description'}))
 	class Meta:
     		model = Posting
     		fields = ('posting_text', 'company_name', 'job', 'job_description',)
