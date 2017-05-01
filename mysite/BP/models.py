@@ -35,14 +35,16 @@ class UserProfile(models.Model):
     country = models.CharField(max_length=100, default='', blank=True)
     major = models.CharField(max_length=100, default='', blank=True)
     university = models.CharField(max_length=100, default='', blank=True)
+    interested_in_joining_a_startup = models.BooleanField(default=False)
 
 class Company(models.Model):
 	user = models.OneToOneField(User, related_name='company_user')
+	company_name = models.CharField(max_length =50, blank = True, default='')
 	company_description = models.TextField(default='', blank=True)
 	company_link = models.URLField(default='', blank=True)
 	company_founders = models.CharField(max_length=150, blank=True, default = '')
 	company_contact_info = models.CharField(max_length =100, blank = True, default='')
-
+	display_in_company_directory = models.BooleanField(default=False)
 
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]

@@ -7,7 +7,8 @@ app_name = 'BP'
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^directory/$', views.DirectoryView.as_view(), name='directory'),
+    url(r'^student_directory/$', views.StudentDirectoryView.as_view(), name='student_directory'),
+    url(r'^company_directory/$', views.CompanyDirectoryView.as_view(), name='company_directory'),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^submit/$', views.submit, name='submit'),
     url(r'^about/$', views.AboutView, name='about'),

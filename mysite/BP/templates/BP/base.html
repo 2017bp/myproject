@@ -329,12 +329,6 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{% url 'BP:directory' %}"><i class="fa fa-table fa-fw"></i> Student Directory </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'BP:about' %}"><i class="fa fa-edit fa-fw"></i> About </a>
-                        </li>
-                        <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -359,34 +353,19 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Directories <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{% url 'BP:company_directory' %}">Company Directory</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
+                                    <a href="{% url 'BP:student_directory' %}">Student Directory</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="{% url 'BP:about' %}"><i class="fa fa-edit fa-fw"></i> About </a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>

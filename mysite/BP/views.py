@@ -26,11 +26,17 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
     template_name = 'BP/detail.html'
 
 
-class DirectoryView(LoginRequiredMixin, generic.ListView):
-    template_name = 'BP/directory.html'
+class StudentDirectoryView(LoginRequiredMixin, generic.ListView):
+    template_name = 'BP/student_directory.html'
     context_object_name = 'user_profiles_list'
     def get_queryset(self):
         return UserProfile.objects.all()
+
+class CompanyDirectoryView(LoginRequiredMixin, generic.ListView):
+    template_name = 'BP/company_directory.html'
+    context_object_name = 'company_list'
+    def get_queryset(self):
+        return Company.objects.all()
 
 
 @login_required
@@ -65,7 +71,7 @@ def edit_user(request, pk):
     user_form = UserForm(instance=user)
 
     # The sorcery begins from here, see explanation below
-    ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('website', 'blurb', 'city', 'country', 'major'))
+    ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('website', 'blurb', 'city', 'country', 'major', 'interested_in_joining_a_startup'))
     formset = ProfileInlineFormset(instance=user)
 
     if request.user.is_authenticated() and request.user.id == user.id:
@@ -99,7 +105,7 @@ def edit_company(request, pk):
     user_form = UserForm(instance=user)
 
     # The sorcery begins from here, see explanation below
-    ProfileInlineFormset = inlineformset_factory(User, Company, fields=('company_description', 'company_link', 'company_founders', 'company_contact_info',))
+    ProfileInlineFormset = inlineformset_factory(User, Company, fields=('company_name', 'company_description', 'company_link', 'company_founders', 'company_contact_info', 'display_in_company_directory'))
     formset = ProfileInlineFormset(instance=user)
 
     if request.user.is_authenticated() and request.user.id == user.id:

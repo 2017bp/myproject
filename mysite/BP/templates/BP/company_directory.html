@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Student Directory</h1>
+                    <h1 class="page-header">Company Directory</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -17,7 +17,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Students interested in joining a startup 
+                            Startups Looking to hire students 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -26,20 +26,22 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Blurb</th>
-                                        <th>Major</th>
-                                        <th>University</th>
-                                        <th>Email</th>
+                                        <th>Link</th>
+                                        <th>Founders</th>
+                                        <th>Contact</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for userprofile in user_profiles_list %}
+                                    {% for company in company_list %}
+                                    {% if company.display_in_company_directory %}
                                     <tr class="odd gradeX">
-                                        <td>{{userprofile.user.first_name}} {{userprofile.user.last_name}}</td>
-                                        <td>{{userprofile.blurb}}</td>
-                                        <td>{{userprofile.major}}</td>
-                                        <td class="center">{{userprofile.university}}</td>
-                                        <td class="center">{{userprofile.user}}</td>
+                                        <td>{{company.company_name}}</td>
+                                        <td>{{company.company_description}}</td>
+                                        <td>{{company.company_link}}</td>
+                                        <td class="center">{{company.company_founders}}</td>
+                                        <td class="center">{{company.company_contact_info}}</td>
                                     </tr>
+                                   {% endif %}
                                    {% endfor %}
                                 </tbody>
                             </table>
