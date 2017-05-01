@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/BP/login'}, name='logout'),
 	url(r'^update/(?P<pk>[\-\w]+)/$', views.edit_user, name='account_update'),
+	url(r'^company_update/(?P<pk>[\-\w]+)/$', views.edit_company, name='edit_company'),
 
     # url(r'^login/$', auth_views.login, {'template_name': 'BP/login.html'}),
     # (r'^logout/$',auth_views.logout, {'next_page': 'login/'}),

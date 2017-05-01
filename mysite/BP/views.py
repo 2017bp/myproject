@@ -3,14 +3,15 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.shortcuts import redirect
-from .models import Posting, Founder, UserProfile
-from .forms import PostForm, UserForm
+from .models import Posting, Founder, UserProfile, Company
+from .forms import PostForm, UserForm, CompanyForm
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from accounts.models import User
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
+from django.views.generic.edit import UpdateView
 
 class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'BP/index.html'
@@ -53,6 +54,8 @@ def logout_view(request):
     logout(request)
     return redirect('login/')
 
+
+# referenced from https://blog.khophi.co/extending-django-user-model-userprofile-like-a-pro/
 @login_required() # only logged in users should access this
 def edit_user(request, pk):
     # querying the User object with pk from url
@@ -87,4 +90,37 @@ def edit_user(request, pk):
     else:
         raise PermissionDenied
 
+@login_required() # only logged in users should access this
+def edit_company(request, pk):
+    # querying the User object with pk from url
+    user = User.objects.get(pk=pk)
+
+    # prepopulate UserProfileForm with retrieved user values from above.
+    user_form = UserForm(instance=user)
+
+    # The sorcery begins from here, see explanation below
+    ProfileInlineFormset = inlineformset_factory(User, Company, fields=('company_description', 'company_link', 'company_founders', 'company_contact_info',))
+    formset = ProfileInlineFormset(instance=user)
+
+    if request.user.is_authenticated() and request.user.id == user.id:
+        if request.method == "POST":
+            user_form = UserForm(request.POST, request.FILES, instance=user)
+            formset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
+
+            if user_form.is_valid():
+                created_user = user_form.save(commit=False)
+                formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
+
+                if formset.is_valid():
+                    created_user.save()
+                    formset.save()
+                    return HttpResponseRedirect('/BP')
+
+        return render(request, "BP/company_info_update.html", {
+            "noodle": pk,
+            "noodle_form": user_form,
+            "formset": formset,
+        })
+    else:
+        raise PermissionDenied
 

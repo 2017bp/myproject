@@ -36,12 +36,27 @@ class UserProfile(models.Model):
     major = models.CharField(max_length=100, default='', blank=True)
     university = models.CharField(max_length=100, default='', blank=True)
 
+class Company(models.Model):
+	user = models.OneToOneField(User, related_name='company_user')
+	company_description = models.TextField(default='', blank=True)
+	company_link = models.URLField(default='', blank=True)
+	company_founders = models.CharField(max_length=150, blank=True, default = '')
+	company_contact_info = models.CharField(max_length =100, blank = True, default='')
+
+
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]
     if kwargs["created"]:
         user_profile = UserProfile(user=user)
         user_profile.save()
 post_save.connect(create_profile, sender=User)
+
+def create_company(sender, **kwargs):
+    user = kwargs["instance"]
+    if kwargs["created"]:
+        user_company = Company(user=user)
+        user_company.save()
+post_save.connect(create_company, sender=User)
 
 
 
