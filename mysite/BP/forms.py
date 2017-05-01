@@ -7,9 +7,10 @@ class PostForm(forms.ModelForm):
  	company_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Company Name'}))
  	job = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Job'}))
  	job_description = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Job Description'}))
+ 	pay = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Job Compensation'}))
 	class Meta:
     		model = Posting
-    		fields = ('posting_text', 'company_name', 'job', 'job_description',)
+    		fields = ('posting_text', 'company_name', 'job', 'job_description', 'pay')
 
 
 

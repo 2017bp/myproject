@@ -60,6 +60,16 @@ def logout_view(request):
     logout(request)
     return redirect('login/')
 
+@login_required
+def delete_posting(request, post_id):
+    posting = Posting.objects.get(pk=post_id)
+    if request.user == posting.user:
+        Posting.objects.filter(id=post_id).delete()
+        return redirect('/BP/')
+    else:
+        raise PermissionDenied 
+
+
 
 # referenced from https://blog.khophi.co/extending-django-user-model-userprofile-like-a-pro/
 @login_required() # only logged in users should access this

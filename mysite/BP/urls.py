@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^company_directory/$', views.CompanyDirectoryView.as_view(), name='company_directory'),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^submit/$', views.submit, name='submit'),
+    url(r'^delete_post/(?P<post_id>\d+)/$', views.delete_posting, name='delete_posting'),
     url(r'^about/$', views.AboutView, name='about'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/BP/login'}, name='logout'),

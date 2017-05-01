@@ -7,11 +7,12 @@ from django.db.models.signals import post_save
 
 # Create your models here.
 class Posting(models.Model):
-	user = models.ForeignKey(User, unique=False)
+	user = models.ForeignKey(User)
 	posting_text = models.CharField(max_length=200)
 	company_name = models.CharField(max_length=200)
 	job = models.CharField(max_length=200)
 	job_description = models.CharField(max_length=1000)
+	pay = models.CharField(max_length=100)
 	def __str__(self):
 		return "Company Name: " + self.company_name + "\n" + "Job: " + self.job + "\n" + "Job Description: " + self.job_description
 
