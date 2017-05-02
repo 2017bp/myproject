@@ -54,7 +54,10 @@ def submit(request):
 
 @login_required
 def AboutView(request):
-    return render(request, 'BP/about.html', )
+    company_count = Company.objects.count()
+    student_count = UserProfile.objects.count()
+    posting_count = Posting.objects.count()
+    return render(request, 'BP/about.html', {'company_count':company_count, 'student_count':student_count, 'posting_count':posting_count})
 
 def logout_view(request):
     logout(request)
