@@ -1,0 +1,120 @@
+html, body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+div#app {
+  display: flex;
+  flex-direction: column;
+  width:500px;
+  .search-wrapper {
+    position: relative;
+    label {
+      position: absolute;
+      font-size: 12px;
+      color: rgba(0,0,0,.50);
+      top: 8px;
+      left: 12px;
+      z-index: -1;
+      transition: .15s all ease-in-out;
+    }
+    input {
+      padding: 4px 12px;
+      color: rgba(0,0,0,.70);
+      border: 1px solid rgba(0,0,0,.12);
+      transition: .15s all ease-in-out;
+      background: white;
+      &:focus {
+        outline: none;
+        transform: scale(1);
+        & + label  {
+          font-size: 10px;
+          transform: translateY(-24px) translateX(-12px);
+        }
+      }
+      &::-webkit-input-placeholder {
+          font-size: 12px;
+          color: rgba(0,0,0,.50);
+          font-weight: 100;
+      }
+    }
+  }
+}
+
+
+
+.user-list{
+  flex: 1 100%;
+  padding-top: 12px;
+  border: 1px solid lighten(whitesmoke, 80%);
+}
+.user-list__item{
+  width:100%;
+  border-bottom: 2px solid white;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 60px;
+  background: whitesmoke;
+  padding: 16px;
+  &:hover{
+    background: lighten(grey, 30%);
+  }
+  &:last-child{
+    border: none;
+    
+  }
+}
+.user-list__content{
+  display:flex-start;
+  align-items: center;
+  padding-left: 58px;
+  height: 40px;
+  vertical-align: middle;
+  width:100%;
+}
+
+.user-list__image{
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  background: lighten(grey, 80%);
+  img{
+    width: 100%;
+  }
+}
+
+.user-list__avatar{
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: lighten(grey, 80%);
+}
+
+.user-list__name{
+  font-size: 18px;
+}
+.user-list__text{
+  color:grey;
+}
+.user-list__status{
+  width:11px;
+  height:10px;
+  background:grey;
+  border-radius:50%;
+  float:right;
+}
+.user-list__status_online{
+  background:green;
+}
+.user-list__status_offline{
+  background:red;
+}
