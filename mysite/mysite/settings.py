@@ -25,7 +25,8 @@ SECRET_KEY = '=tthwc*ie_y-h9+%j$ynvm8#q$aq_k=1*zygaai=ox@-z_wmni'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://mysterious-mountain-50455.herokuapp.com/']
+
 
 
 # Application definition
